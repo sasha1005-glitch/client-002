@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>徐秀珍小姐 專屬醫療與意外保障規劃書｜南山人壽</title>
+  <!-- 載入 Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 載入 Google Fonts: Noto Sans TC 與 Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- 載入 Font Awesome 圖示庫 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans TC"', '"Inter"', 'sans-serif'],
+          },
+          colors: {
+            warmbg: '#FAF9F6',
+            deepsea: {
+              50: '#F0F6FA',
+              100: '#DCEAF4',
+              600: '#1B5E8A',
+              700: '#154B70',
+              800: '#0F3D5E',
+              900: '#0A2940',
+            },
+            emeraldcare: {
+              50: '#ECFDF5',
+              100: '#D1FAE5',
+              600: '#107C65',
+              700: '#0D6351',
+              800: '#0A4D3F',
+            },
+            softgold: {
+              50: '#FFFBEB',
+              100: '#FEF3C7',
+              500: '#C58B2A',
+              600: '#A3701F',
+              700: '#7C5416',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* 基礎字級與放大字支援 */
+    html {
+      font-size: 16px;
+      background-color: #FAF9F6;
+      color: #1E293B;
+    }
+    html.large-text {
+      font-size: 18.88px; /* 1.18x 放大倍率 */
+    }
+    body {
+      overflow-x: hidden;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    /* 列印或存 PDF 時自動展開所有收合區塊 */
+    @media print {
+      header, nav, #toast-box, .no-print {
+        display: none !important;
+      }
+      body {
+        background-color: #FFFFFF !important;
+        padding-bottom: 0 !important;
+      }
+      .collapsible-panel {
+        display: block !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-warmbg text-slate-800 antialiased pb-24 xl:pb-12">
+
+  <!-- 頂部固定導覽與字體大小切換列 -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-2">
+      <!-- 標題與顧問資訊 -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-deepsea-800 text-white flex items-center justify-center shadow-sm shrink-0">
+          <i class="fa-solid fa-shield-heart text-lg text-amber-300"></i>
+        </div>
+        <div>
+          <h1 class="font-bold text-deepsea-900 text-sm sm:text-base tracking-wide">徐秀珍小姐 專屬醫療與意外保障規劃書</h1>
+          <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5">
+            南山人壽｜壽險顧問 <strong class="text-slate-700">陳姵彣</strong>（正興通訊處）｜<span class="text-emeraldcare-600 font-semibold">已依南山人壽保單條款與附表逐條核對</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- 快速章節導覽（大螢幕顯示） -->
+      <nav class="hidden xl:flex items-center gap-1 text-sm font-medium text-slate-600">
+        <a href="#overview" class="px-3 py-1.5 rounded-lg hover:bg-deepsea-50 hover:text-deepsea-800 transition">四大保障</a>
+        <a href="#simulator" class="px-3 py-1.5 rounded-lg hover:bg-deepsea-50 hover:text-deepsea-800 transition">理賠實測</a>
+        <a href="#policies" class="px-3 py-1.5 rounded-lg hover:bg-deepsea-50 hover:text-deepsea-800 transition">10項險種</a>
+        <a href="#spillover" class="px-3 py-1.5 rounded-lg hover:bg-deepsea-50 hover:text-deepsea-800 transition">外溢回饋</a>
+        <a href="#admin-accordions" class="px-3 py-1.5 rounded-lg hover:bg-deepsea-50 hover:text-deepsea-800 transition">保費與續保</a>
+      </nav>
+
+      <!-- 字級切換與列印按鈕 -->
+      <div class="flex items-center gap-2 shrink-0">
+        <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200">
+          <button id="btn-font-normal" onclick="setFontSize('normal')" class="px-2.5 py-1 rounded-lg text-xs sm:text-sm font-semibold bg-white text-deepsea-800 shadow-sm transition cursor-pointer">
+            標準字
+          </button>
+          <button id="btn-font-large" onclick="setFontSize('large')" class="px-2.5 py-1 rounded-lg text-xs sm:text-sm font-semibold text-slate-600 hover:text-deepsea-800 transition cursor-pointer">
+            放大字 <span class="text-[10px] opacity-80">(1.18x)</span>
+          </button>
+        </div>
+
+        <button onclick="window.print()" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-deepsea-800 hover:bg-deepsea-900 text-white text-xs sm:text-sm font-semibold transition cursor-pointer shadow-sm">
+          <i class="fa-solid fa-print"></i>
+          <span>列印 / 存PDF</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主要內容容器 -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-6 sm:pt-8 space-y-12 sm:space-y-14">
+
+    <!-- =====================================================================
+         區塊一：頂部四大核心保障摘要儀表板
+    ====================================================================== -->
+    <section id="overview" class="space-y-6">
+      <!-- 客戶基本資料橫幅 -->
+      <div class="rounded-3xl bg-gradient-to-br from-deepsea-900 via-deepsea-800 to-emeraldcare-800 text-white p-6 sm:p-8 shadow-lg relative overflow-hidden">
+        <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="space-y-2.5 max-w-2xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 border border-white/20 text-amber-200 text-xs font-semibold">
+              <i class="fa-solid fa-circle-check text-emerald-300"></i>
+              <span>列印日期：115年11月18日｜已依南山人壽保單條款與附表逐條核對</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">
+              謹致 <span class="text-amber-300">徐秀珍 小姐</span> 的全齡醫療與意外防護網
+            </h2>
+            <p class="text-deepsea-100 text-sm sm:text-base leading-relaxed">
+              兼顧「高品質住院日額、無自負額實支雜費、住院/門診手術、百萬癌症一次金、出院短期看護」五大防護核心，守護日常與突發醫療需求。
+            </p>
+          </div>
+
+          <!-- 客戶檔案卡 -->
+          <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:min-w-[290px] grid grid-cols-2 gap-3 text-sm">
+            <div>
+              <span class="text-deepsea-100 text-xs block">被保險人</span>
+              <strong class="text-base text-white">徐秀珍 小姐</strong>
+            </div>
+            <div>
+              <span class="text-deepsea-100 text-xs block">保險年齡 / 性別</span>
+              <strong class="text-base text-amber-300">59 歲 / 女性</strong>
+            </div>
+            <div>
+              <span class="text-deepsea-100 text-xs block">職業代碼</span>
+              <strong class="text-white">150（第一類）</strong>
+            </div>
+            <div>
+              <span class="text-deepsea-100 text-xs block">首年年繳保費</span>
+              <strong class="text-base text-emerald-300">92,821 元</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 四大核心保障儀表板卡片 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+        <!-- 卡片 1：住院日額保障 -->
+        <div class="bg-white rounded-3xl border border-slate-200/90 p-6 shadow-sm hover:border-deepsea-300 transition space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full bg-deepsea-50 text-deepsea-800">
+              <i class="fa-solid fa-bed-pulse"></i> 核心保障 01｜住院日額
+            </span>
+            <span class="text-xs text-slate-400 font-medium">首年度末試算</span>
+          </div>
+          <div class="space-y-1">
+            <div class="text-sm text-slate-500">疾病／癌症住院日額</div>
+            <div class="text-2xl sm:text-3xl font-bold text-deepsea-900">
+              6,500 ～ 8,500 <span class="text-sm font-normal text-slate-500">元 / 日</span>
+            </div>
+            <div class="text-sm font-semibold text-emeraldcare-600">
+              意外住院最高：8,500 ～ 10,500 元 / 日
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 pt-2 border-t border-slate-100 leading-relaxed">
+            含 <strong>20STCB</strong> 住院看護 1,500 ＋ <strong>1HIR</strong> 2,000~4,000 ＋ <strong>1HS</strong> 病房費差額限額 3,000 ＋ 意外 <strong>DHI</strong> 2,000 元/日。
+          </p>
+        </div>
+
+        <!-- 卡片 2：醫療雜費無自負額 -->
+        <div class="bg-white rounded-3xl border border-slate-200/90 p-6 shadow-sm hover:border-emeraldcare-300 transition space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full bg-emeraldcare-50 text-emeraldcare-700">
+              <i class="fa-solid fa-file-invoice-dollar"></i> 核心保障 02｜無自負額實支
+            </span>
+            <span class="text-xs text-emeraldcare-600 font-semibold">1HS-A型（不具自負額）</span>
+          </div>
+          <div class="space-y-1">
+            <div class="text-sm text-slate-500">一般病房每次雜費及手術限額</div>
+            <div class="text-2xl sm:text-3xl font-bold text-emeraldcare-700">
+              200,000 <span class="text-sm font-normal text-slate-500">元 / 次</span>
+            </div>
+            <div class="text-sm font-semibold text-deepsea-800">
+              入住加護病房／燒燙傷中心翻倍至：400,000 元 / 次
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 pt-2 border-t border-slate-100 leading-relaxed">
+            <strong>1HS-A型</strong>不具自負額，高價自費醫材與藥物限額內實支核銷；另有<strong>日額型 3,600 元/日</strong>可擇優給付。
+          </p>
+        </div>
+
+        <!-- 卡片 3：住院與門診手術雙重保障 -->
+        <div class="bg-white rounded-3xl border border-slate-200/90 p-6 shadow-sm hover:border-deepsea-300 transition space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full bg-deepsea-50 text-deepsea-800">
+              <i class="fa-solid fa-kit-medical"></i> 核心保障 03｜手術與處置
+            </span>
+            <span class="text-xs text-slate-400 font-medium">定額＋實支雙重給付</span>
+          </div>
+          <div class="space-y-1">
+            <div class="text-sm text-slate-500">住院手術醫療保障區間</div>
+            <div class="text-2xl sm:text-3xl font-bold text-deepsea-900">
+              26,500 ～ 125,500 <span class="text-sm font-normal text-slate-500">元 / 次</span>
+            </div>
+            <div class="text-sm font-semibold text-emeraldcare-600">
+              門診手術醫療：4,000 ～ 103,000 元 / 次
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 pt-2 border-t border-slate-100 leading-relaxed">
+            整合 <strong>20HPSI2</strong>（1,000~10萬）＋ <strong>1SIR</strong>（住院1.5萬/門診3千）＋ <strong>1HS</strong> 門診手術限額 30,000 元，另含 <strong>1SIR 特定醫材補助 15,000 元</strong>。
+          </p>
+        </div>
+
+        <!-- 卡片 4：百萬癌症一次金＋出院短照 -->
+        <div class="bg-white rounded-3xl border border-slate-200/90 p-6 shadow-sm hover:border-softgold-300 transition space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full bg-softgold-50 text-softgold-700">
+              <i class="fa-solid fa-hand-holding-heart"></i> 核心保障 04｜癌症一次金＋短照
+            </span>
+            <span class="text-xs text-softgold-600 font-semibold">20SC ＋ 20STCB</span>
+          </div>
+          <div class="space-y-1">
+            <div class="text-sm text-slate-500">第 2 保單年度（含）後重度癌症一次金</div>
+            <div class="text-2xl sm:text-3xl font-bold text-softgold-600">
+              1,000,000 <span class="text-sm font-normal text-slate-500">元（整筆定額）</span>
+            </div>
+            <div class="text-sm font-semibold text-deepsea-800">
+              出院短期照顧 1,500 元/日 ＋ 術後加值金 10,500 元
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 pt-2 border-t border-slate-100 leading-relaxed">
+            初期/輕度癌症第 2 年度後定額 <strong>100,000 元</strong>（首年 24,530 元，等待期 90 日），搭配 <strong>20STCB</strong> 住院與出院居家照護雙重津貼。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         區塊二：五大真實醫療情境理賠模擬器（條款精準核算版）
+    ====================================================================== -->
+    <section id="simulator" class="space-y-5">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emeraldcare-600">MODULE 01｜VERIFIED CLAIM SIMULATOR</span>
+          <h2 class="text-xl sm:text-2xl font-bold text-deepsea-900">五大真實醫療情境理賠模擬器（條款精準核算版）</h2>
+        </div>
+        <span class="text-xs font-semibold text-emeraldcare-700 bg-emeraldcare-50 border border-emeraldcare-200 px-3 py-1 rounded-full self-start sm:self-auto">
+          <i class="fa-solid fa-check-double mr-1"></i> 點擊下方情境按鈕切換條款試算
+        </span>
+      </div>
+
+      <!-- 5 大情境切換按鈕列 -->
+      <div class="flex overflow-x-auto no-scrollbar gap-2.5 pb-1" role="tablist">
+        <button onclick="selectScenario('1')" id="tab-scenario-1" class="scenario-btn shrink-0 px-4 py-3 rounded-2xl border-2 text-left transition cursor-pointer bg-deepsea-800 border-deepsea-800 text-white shadow-sm">
+          <div class="text-xs text-amber-300 font-medium">情境 1｜免住院門診</div>
+          <div class="font-bold text-sm sm:text-base mt-0.5">大腸鏡息肉切除術</div>
+        </button>
+
+        <button onclick="selectScenario('2')" id="tab-scenario-2" class="scenario-btn shrink-0 px-4 py-3 rounded-2xl border-2 text-left transition cursor-pointer bg-white border-slate-200 text-slate-700 hover:border-deepsea-300">
+          <div class="text-xs text-slate-500 font-medium">情境 2｜住院 4 天</div>
+          <div class="font-bold text-sm sm:text-base mt-0.5">腹腔鏡膽囊切除</div>
+        </button>
+
+        <button onclick="selectScenario('3')" id="tab-scenario-3" class="scenario-btn shrink-0 px-4 py-3 rounded-2xl border-2 text-left transition cursor-pointer bg-white border-slate-200 text-slate-700 hover:border-deepsea-300">
+          <div class="text-xs text-slate-500 font-medium">情境 3｜加護2天＋一般4天</div>
+          <div class="font-bold text-sm sm:text-base mt-0.5">急性心梗放塗藥支架</div>
+        </button>
+
+        <button onclick="selectScenario('4')" id="tab-scenario-4" class="scenario-btn shrink-0 px-4 py-3 rounded-2xl border-2 text-left transition cursor-pointer bg-white border-slate-200 text-slate-700 hover:border-deepsea-300">
+          <div class="text-xs text-slate-500 font-medium">情境 4｜意外住院 6 天</div>
+          <div class="font-bold text-sm sm:text-base mt-0.5">股骨閉鎖性骨折手術</div>
+        </button>
+
+        <button onclick="selectScenario('5')" id="tab-scenario-5" class="scenario-btn shrink-0 px-4 py-3 rounded-2xl border-2 text-left transition cursor-pointer bg-white border-slate-200 text-slate-700 hover:border-deepsea-300">
+          <div class="text-xs text-slate-500 font-medium">情境 5｜第 2 年度後確診</div>
+          <div class="font-bold text-sm sm:text-base mt-0.5">重度乳癌根除手術</div>
+        </button>
+      </div>
+
+      <!-- 單一情境動態顯示容器 -->
+      <div id="scenario-display" class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+        <!-- 由 JS 動態填入當前選中情境 -->
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         區塊三：10 項保障險種白話拆解（無續保標籤徽章，預設全收合）
+    ====================================================================== -->
+    <section id="policies" class="space-y-5">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emeraldcare-600">MODULE 02｜POLICY BREAKDOWN</span>
+          <h2 class="text-xl sm:text-2xl font-bold text-deepsea-900">10 項保障險種白話拆解</h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">所有險種卡片預設精簡收合，點擊任一張卡片即可展開白話條款重點</p>
+        </div>
+
+        <!-- 分類篩選標籤 -->
+        <div class="flex flex-wrap gap-2">
+          <button onclick="filterPolicies('all')" id="filter-all" class="filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-deepsea-800 text-white shadow-sm transition cursor-pointer">
+            全部 (10)
+          </button>
+          <button onclick="filterPolicies('main')" id="filter-main" class="filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition cursor-pointer">
+            20年期主約 (3)
+          </button>
+          <button onclick="filterPolicies('medical')" id="filter-medical" class="filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition cursor-pointer">
+            住院手術醫療 (3)
+          </button>
+          <button onclick="filterPolicies('accident')" id="filter-accident" class="filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition cursor-pointer">
+            意外傷害保障 (4)
+          </button>
+        </div>
+      </div>
+
+      <!-- 10 張預設收合的險種列表 -->
+      <div id="policy-list" class="space-y-3">
+        <!-- 由 JS 動態渲染，內容面板皆預設 style="display: none;" -->
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         區塊四：外溢回饋試算器
+    ====================================================================== -->
+    <section id="spillover" class="space-y-5">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emeraldcare-600">MODULE 03｜WELLNESS REWARD CALCULATOR</span>
+          <h2 class="text-xl sm:text-2xl font-bold text-deepsea-900">外溢健康回饋金互動試算器</h2>
+        </div>
+        <span class="text-xs text-slate-500">外溢計費基數：20SC(22,300) ＋ 1HIR(5,060) ＋ 1SIR(2,910) ＋ 1HS(12,000) ＝ <strong>42,270 元</strong></span>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <!-- 左側互動控制區 -->
+          <div class="lg:col-span-7 space-y-5">
+            <!-- 步驟 1：選擇健檢體位等級 -->
+            <div class="space-y-2.5">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <label class="text-sm font-bold text-deepsea-900">
+                  <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emeraldcare-600 text-white text-xs mr-1.5">1</span>
+                  選擇年度健檢 5 項指標達標體位等級：
+                </label>
+                <button type="button" onclick="togglePanel('wellness-std-panel', 'wellness-std-btn')" id="wellness-std-btn" class="text-xs text-emeraldcare-600 hover:text-emeraldcare-700 font-semibold underline cursor-pointer">
+                  查看 5 項女性標準 ▼
+                </button>
+              </div>
+
+              <!-- 預設完全收合的女性健檢標準面板 -->
+              <div id="wellness-std-panel" class="collapsible-panel bg-warmbg border border-slate-200 rounded-xl p-3.5 text-xs text-slate-700 space-y-1.5" style="display: none;">
+                <p class="font-bold text-deepsea-900">女性五項身體健康檢查標準（達標幾項即對應等級）：</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                  <div>① <strong>腰圍：</strong>女性 &lt; 80 cm</div>
+                  <div>② <strong>血壓：</strong>收縮壓 &lt; 130 且舒張壓 &lt; 85 mmHg</div>
+                  <div>③ <strong>空腹血糖：</strong>&lt; 100 mg/dL</div>
+                  <div>④ <strong>三酸甘油酯：</strong>&lt; 150 mg/dL</div>
+                  <div class="sm:col-span-2">⑤ <strong>高密度脂蛋白膽固醇：</strong>女性 ≥ 50 mg/dL</div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
+                <button type="button" onclick="setWellnessTier(10)" id="tier-10" class="tier-btn p-3 rounded-xl border-2 border-emeraldcare-600 bg-emeraldcare-50 text-emeraldcare-800 text-center transition cursor-pointer">
+                  <div class="font-bold text-base">5A 級</div>
+                  <div class="text-[11px] text-slate-500">5項全達標</div>
+                  <div class="text-xs font-bold text-emeraldcare-600 mt-0.5">回饋 10%</div>
+                </button>
+                <button type="button" onclick="setWellnessTier(5)" id="tier-5" class="tier-btn p-3 rounded-xl border-2 border-slate-200 bg-white text-slate-700 hover:border-emeraldcare-300 text-center transition cursor-pointer">
+                  <div class="font-bold text-base">4A 級</div>
+                  <div class="text-[11px] text-slate-400">達標 4 項</div>
+                  <div class="text-xs text-slate-500 mt-0.5">回饋 5%</div>
+                </button>
+                <button type="button" onclick="setWellnessTier(3)" id="tier-3" class="tier-btn p-3 rounded-xl border-2 border-slate-200 bg-white text-slate-700 hover:border-emeraldcare-300 text-center transition cursor-pointer">
+                  <div class="font-bold text-base">3A 級</div>
+                  <div class="text-[11px] text-slate-400">達標 3 項</div>
+                  <div class="text-xs text-slate-500 mt-0.5">回饋 3%</div>
+                </button>
+                <button type="button" onclick="setWellnessTier(1)" id="tier-1" class="tier-btn p-3 rounded-xl border-2 border-slate-200 bg-white text-slate-700 hover:border-emeraldcare-300 text-center transition cursor-pointer">
+                  <div class="font-bold text-base">2A 級</div>
+                  <div class="text-[11px] text-slate-400">達標 2 項</div>
+                  <div class="text-xs text-slate-500 mt-0.5">回饋 1%</div>
+                </button>
+                <button type="button" onclick="setWellnessTier(0)" id="tier-0" class="tier-btn p-3 rounded-xl border-2 border-slate-200 bg-white text-slate-700 hover:border-emeraldcare-300 text-center transition cursor-pointer col-span-2 sm:col-span-1">
+                  <div class="font-bold text-base">1A 級</div>
+                  <div class="text-[11px] text-slate-400">1項(含)以下</div>
+                  <div class="text-xs text-slate-500 mt-0.5">回饋 0%</div>
+                </button>
+              </div>
+            </div>
+
+            <!-- 步驟 2：是否完成指定疫苗或四癌篩檢 -->
+            <div class="space-y-2.5">
+              <label class="text-sm font-bold text-deepsea-900 block">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emeraldcare-600 text-white text-xs mr-1.5">2</span>
+                當年度是否完成「指定疫苗接種」或「指定四癌篩檢」？
+              </label>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <button type="button" onclick="setVaccineBonus(true)" id="vax-yes" class="p-3.5 rounded-xl border-2 border-emeraldcare-600 bg-emeraldcare-50 text-emeraldcare-800 flex items-center justify-between transition cursor-pointer">
+                  <div class="flex items-center gap-2.5">
+                    <i class="fa-solid fa-syringe text-emeraldcare-600"></i>
+                    <span class="font-semibold text-sm">已完成任一項</span>
+                  </div>
+                  <span class="text-xs font-bold bg-emeraldcare-600 text-white px-2 py-0.5 rounded-md">+2% 回饋</span>
+                </button>
+                <button type="button" onclick="setVaccineBonus(false)" id="vax-no" class="p-3.5 rounded-xl border-2 border-slate-200 bg-white text-slate-600 hover:border-slate-300 flex items-center justify-between transition cursor-pointer">
+                  <div class="flex items-center gap-2.5">
+                    <i class="fa-regular fa-circle text-slate-400"></i>
+                    <span class="font-semibold text-sm">尚未施打或篩檢</span>
+                  </div>
+                  <span class="text-xs font-medium text-slate-400">+0%</span>
+                </button>
+              </div>
+              <p class="text-xs text-slate-500">
+                ※ 指定疫苗含流感、肺炎鏈球菌、帶狀疱疹、COVID-19等11項；四癌篩檢含乳房X光攝影、子宮頸抹片、糞便潛血、口腔黏膜檢查。
+              </p>
+            </div>
+          </div>
+
+          <!-- 右側即時試算結果儀表板 -->
+          <div class="lg:col-span-5 bg-gradient-to-br from-emeraldcare-800 to-deepsea-900 text-white rounded-2xl p-6 space-y-4 shadow-md">
+            <div class="flex items-center justify-between border-b border-white/15 pb-3">
+              <span class="text-xs text-emerald-200 font-medium">首年度預估現金回饋試算</span>
+              <span id="wellness-rate-badge" class="text-xs font-bold bg-amber-400 text-deepsea-900 px-2.5 py-0.5 rounded-full">合計回饋 12%</span>
+            </div>
+
+            <div>
+              <p class="text-xs text-deepsea-100">當年度可領回現金回饋金</p>
+              <div class="flex items-baseline gap-2 mt-1">
+                <span class="text-3xl sm:text-4xl font-bold text-amber-300">NT$ <span id="wellness-total-amount">5,072</span></span>
+                <span class="text-xs text-emerald-200">/ 年</span>
+              </div>
+              <p id="wellness-formula-text" class="text-xs text-emerald-100/90 mt-1.5">
+                明細：健康促進 4,227 元 (10%) ＋ 防疫保健 845 元 (2%)
+              </p>
+            </div>
+
+            <div class="bg-white/10 rounded-xl p-3.5 text-xs text-deepsea-100 space-y-1">
+              <div class="flex items-center gap-1.5 text-amber-200 font-semibold">
+                <i class="fa-solid fa-award"></i>
+                <span>20HPSI2 健康促進係數 1.05 增值設計</span>
+              </div>
+              <p class="leading-relaxed">
+                <strong>20HPSI2（溢同安心2）</strong>於第 2 保單年度第 8 個月起完成指定健檢達 <strong>S 級體位</strong>，第 3 保單年度起滿期/身故給付之「健康促進係數」即享 <strong>1.05 倍</strong>增值！
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         區塊五：底部兩張【預設完全收合】的互動手風琴面板
+         初始狀態務必使用 style="display: none;" 與 togglePanel() 確保絕對收合
+    ====================================================================== -->
+    <section id="admin-accordions" class="space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emeraldcare-600">MODULE 04｜PAYMENT & RENEWAL TERMS</span>
+          <h2 class="text-xl sm:text-2xl font-bold text-deepsea-900">繳費方式試算與一年期附約續保規範</h2>
+        </div>
+        <p class="text-xs text-slate-500">預設為精簡收合狀態，點擊標題列即可展開瀏覽</p>
+      </div>
+
+      <!-- 面板一：《各繳別保費試算與自動轉帳 1% 折扣》 -->
+      <div class="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden transition hover:border-deepsea-300">
+        <button type="button" onclick="togglePanel('panel-payment-content', 'panel-payment-btn')" aria-expanded="false" class="w-full p-5 sm:p-6 text-left flex flex-col sm:flex-row sm:items-center justify-between gap-4 cursor-pointer">
+          <div class="flex items-start sm:items-center gap-3.5">
+            <div class="w-11 h-11 rounded-2xl bg-softgold-50 text-softgold-600 border border-softgold-200/80 flex items-center justify-center text-lg shrink-0 mt-0.5 sm:mt-0">
+              <i class="fa-solid fa-coins"></i>
+            </div>
+            <div class="space-y-1">
+              <h3 class="text-base sm:text-lg font-bold text-deepsea-900">《各繳別保費試算與自動轉帳 1% 折扣》</h3>
+              <p class="text-xs sm:text-sm text-slate-600">
+                年繳 <strong class="text-slate-800">92,821 元</strong>（自動轉帳/聯名卡折扣後 <strong class="text-emeraldcare-600">91,893 元</strong>）
+              </p>
+            </div>
+          </div>
+
+          <div id="panel-payment-btn" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-deepsea-50 text-deepsea-800 font-semibold text-xs sm:text-sm shrink-0 self-end sm:self-center">
+            <span>點擊展開 ▼</span>
+          </div>
+        </button>
+
+        <!-- 預設完全隱藏的內容區 -->
+        <div id="panel-payment-content" class="collapsible-panel px-5 sm:px-8 pb-6 sm:pb-8 pt-4 border-t border-slate-100 space-y-5" style="display: none;">
+          <!-- 五種繳別互動切換按鈕 -->
+          <div class="flex flex-wrap gap-2">
+            <button type="button" onclick="selectPaymentMode('annual_discount')" id="paybtn-annual_discount" class="paymode-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-deepsea-800 text-white shadow-sm transition cursor-pointer">
+              年繳（轉帳/聯名卡折1%）
+            </button>
+            <button type="button" onclick="selectPaymentMode('annual')" id="paybtn-annual" class="paymode-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-warmbg text-slate-700 border border-slate-200 hover:border-deepsea-300 transition cursor-pointer">
+              年繳（原價）
+            </button>
+            <button type="button" onclick="selectPaymentMode('semi')" id="paybtn-semi" class="paymode-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-warmbg text-slate-700 border border-slate-200 hover:border-deepsea-300 transition cursor-pointer">
+              半年繳
+            </button>
+            <button type="button" onclick="selectPaymentMode('quarter')" id="paybtn-quarter" class="paymode-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-warmbg text-slate-700 border border-slate-200 hover:border-deepsea-300 transition cursor-pointer">
+              季繳
+            </button>
+            <button type="button" onclick="selectPaymentMode('month')" id="paybtn-month" class="paymode-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-warmbg text-slate-700 border border-slate-200 hover:border-deepsea-300 transition cursor-pointer">
+              月繳
+            </button>
+          </div>
+
+          <!-- 動態顯示選中繳別與主附約明細 -->
+          <div id="payment-detail-box" class="bg-warmbg rounded-2xl p-5 border border-slate-200/80 grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+            <!-- 由 JS 動態填入 -->
+          </div>
+
+          <!-- 投保年齡提醒 -->
+          <div class="bg-softgold-50 border border-softgold-200 rounded-2xl p-4 flex items-start gap-3 text-xs sm:text-sm text-slate-700">
+            <i class="fa-solid fa-calendar-day text-softgold-600 text-base mt-0.5 shrink-0"></i>
+            <p class="leading-relaxed">
+              <strong>2月15日投保年齡增加 1 歲提醒：</strong>本建議書以保險年齡 <strong>59 歲</strong>試算；<strong>若於 2 月 15 日（含）後投保，保險年齡將會多 1 歲</strong>（改以 60 歲費率計算）。辦理金融機構自動轉帳或南山人壽聯名卡自動扣款，扣款成功享 1% 保費折扣。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 面板二：《主管機關規範：一年期附約續保年齡與重要提醒》 -->
+      <div class="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden transition hover:border-deepsea-300">
+        <button type="button" onclick="togglePanel('panel-renewal-content', 'panel-renewal-btn')" aria-expanded="false" class="w-full p-5 sm:p-6 text-left flex flex-col sm:flex-row sm:items-center justify-between gap-4 cursor-pointer">
+          <div class="flex items-start sm:items-center gap-3.5">
+            <div class="w-11 h-11 rounded-2xl bg-deepsea-50 text-deepsea-800 border border-deepsea-200/80 flex items-center justify-center text-lg shrink-0 mt-0.5 sm:mt-0">
+              <i class="fa-solid fa-scale-balanced"></i>
+            </div>
+            <div class="space-y-1">
+              <h3 class="text-base sm:text-lg font-bold text-deepsea-900">《主管機關規範：一年期附約續保年齡與重要提醒》</h3>
+              <p class="text-xs sm:text-sm text-slate-600">
+                各附約最高續保年齡（<strong class="text-slate-800">65 / 75 / 85 歲</strong>）及續保費率調整規則
+              </p>
+            </div>
+          </div>
+
+          <div id="panel-renewal-btn" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-deepsea-50 text-deepsea-800 font-semibold text-xs sm:text-sm shrink-0 self-end sm:self-center">
+            <span>點擊展開 ▼</span>
+          </div>
+        </button>
+
+        <!-- 預設完全隱藏的內容區（簡潔單一表格＋重要提醒） -->
+        <div id="panel-renewal-content" class="collapsible-panel px-5 sm:px-8 pb-6 sm:pb-8 pt-4 border-t border-slate-100 space-y-5" style="display: none;">
+          <div class="overflow-x-auto rounded-2xl border border-slate-200/80">
+            <table class="w-full text-left border-collapse text-xs sm:text-sm">
+              <thead>
+                <tr class="bg-warmbg border-b border-slate-200 text-deepsea-900">
+                  <th class="py-3 px-4 font-bold">續保條件分類</th>
+                  <th class="py-3 px-4 font-bold">最高續保年齡上限</th>
+                  <th class="py-3 px-4 font-bold">適用附約險種</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 text-slate-700">
+                <tr>
+                  <td class="py-3 px-4"><span class="px-2.5 py-1 rounded-md bg-emeraldcare-50 text-emeraldcare-700 font-bold text-xs">保證續保</span></td>
+                  <td class="py-3 px-4 font-bold text-emeraldcare-700">保險年齡達 85 歲之保單年度末</td>
+                  <td class="py-3 px-4"><strong>1HIR</strong>（日臻幸福住院日額）、<strong>1SIR</strong>（手握幸福手術醫療）</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4"><span class="px-2.5 py-1 rounded-md bg-emeraldcare-50 text-emeraldcare-700 font-bold text-xs">保證續保</span></td>
+                  <td class="py-3 px-4 font-bold text-deepsea-800">保險年齡達 75 歲之保單年度末</td>
+                  <td class="py-3 px-4"><strong>1HS</strong>（實踐幸福住院醫療健康保險附約-A型）</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4"><span class="px-2.5 py-1 rounded-md bg-softgold-50 text-softgold-700 font-bold text-xs">非保證續保（逐年更新）</span></td>
+                  <td class="py-3 px-4 font-bold text-deepsea-800">保險年齡達 75 歲之保單年度末</td>
+                  <td class="py-3 px-4"><strong>SBBR</strong>（意外骨折）、<strong>PAMR</strong>（成意實足意外實支）、<strong>DHI</strong>（意外日額）<span class="text-xs text-slate-500 block mt-0.5">※ 經本公司同意逐年更新；65 歲起須完成高齡續保作業始可延續至 75 歲</span></td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-4"><span class="px-2.5 py-1 rounded-md bg-softgold-50 text-softgold-700 font-bold text-xs">非保證續保（逐年更新）</span></td>
+                  <td class="py-3 px-4 font-bold text-slate-700">保險年齡達 65 歲之保單年度末</td>
+                  <td class="py-3 px-4"><strong>NAI</strong>（新傷害保險附約）<span class="text-xs text-slate-500 block mt-0.5">※ 經本公司同意並於期滿後 30 日內交付續保費得逐年更新</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 續保費率調整、等待期與附約延續權益說明 -->
+          <div class="bg-warmbg rounded-2xl p-4 sm:p-5 border border-slate-200/80 space-y-2 text-xs sm:text-sm text-slate-700 leading-relaxed">
+            <p><strong>1. 續保費率調整規則：</strong>一年期附約續保時，依續保生效當時陳報主管機關之費率及被保險人年齡重新計算保費；其中保證續保商品<strong>不得針對個別被保險人身體狀況調整之</strong>。</p>
+            <p><strong>2. 附約延續權益：</strong>主契約若因屆滿最高續保年齡或理賠（如 20SC 給付重度癌症保險金）而終止時，要保人可依「<strong>南山人壽附約延續附加條款</strong>」提出書面申請持續繳費以維持有效附約之效力。</p>
+            <p><strong>3. 等待期與契約準據：</strong>一般疾病等待期 <strong>30 日</strong>、癌症等待期 <strong>90 日</strong>（意外附約無等待期）。本建議書僅供參考，實際權利義務悉以保單條款所載為準。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         頁尾專屬顧問簽名與法規聲明
+    ====================================================================== -->
+    <footer class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-2xl bg-deepsea-800 text-white flex items-center justify-center text-xl font-bold shrink-0">
+            陳
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-base sm:text-lg font-bold text-deepsea-900">陳姵彣</span>
+              <span class="text-xs bg-deepsea-50 text-deepsea-800 px-2.5 py-0.5 rounded-full font-semibold">南山人壽｜正興通訊處</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">您的專屬壽險顧問｜列印日期：115年11月18日</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-2 no-print">
+          <button type="button" onclick="copySummaryText()" class="px-4 py-2.5 rounded-xl bg-deepsea-50 hover:bg-deepsea-100 text-deepsea-800 font-semibold text-xs sm:text-sm transition flex items-center gap-2 cursor-pointer">
+            <i class="fa-regular fa-copy"></i> 複製摘要給家人
+          </button>
+          <button type="button" onclick="window.print()" class="px-4 py-2.5 rounded-xl bg-deepsea-800 hover:bg-deepsea-900 text-white font-semibold text-xs sm:text-sm transition flex items-center gap-2 cursor-pointer">
+            <i class="fa-solid fa-file-pdf"></i> 列印 / 存PDF
+          </button>
+        </div>
+      </div>
+
+      <p class="text-xs text-slate-500 leading-relaxed">
+        ※ 本互動說明網頁依據南山人壽建議書及對應保單條款與附表逐條核對製作，僅供規劃解說參考之用，並非保險契約；實際給付項目、金額及詳細權利義務悉依保單條款所載為準。免費申訴電話：0800-020-060。
+      </p>
+    </footer>
+  </main>
+
+  <!-- 手機版底部固定快捷導覽列 -->
+  <nav class="fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 xl:hidden px-2 py-1.5 shadow-[0_-4px_12px_rgba(0,0,0,0.04)] no-print">
+    <div class="grid grid-cols-5 gap-1 text-center text-[11px] font-medium text-slate-600">
+      <a href="#overview" class="py-1.5 rounded-lg hover:bg-deepsea-50 hover:text-deepsea-800 flex flex-col items-center gap-0.5">
+        <i class="fa-solid fa-shield-halved text-sm text-deepsea-800"></i>
+        <span>四大保障</span>
+      </a>
+      <a href="#simulator" class="py-1.5 rounded-lg hover:bg-deepsea-50 hover:text-deepsea-800 flex flex-col items-center gap-0.5">
+        <i class="fa-solid fa-calculator text-sm text-emeraldcare-600"></i>
+        <span>理賠實測</span>
+      </a>
+      <a href="#policies" class="py-1.5 rounded-lg hover:bg-deepsea-50 hover:text-deepsea-800 flex flex-col items-center gap-0.5">
+        <i class="fa-solid fa-layer-group text-sm text-deepsea-800"></i>
+        <span>10項險種</span>
+      </a>
+      <a href="#spillover" class="py-1.5 rounded-lg hover:bg-deepsea-50 hover:text-deepsea-800 flex flex-col items-center gap-0.5">
+        <i class="fa-solid fa-seedling text-sm text-emeraldcare-600"></i>
+        <span>外溢回饋</span>
+      </a>
+      <a href="#admin-accordions" class="py-1.5 rounded-lg hover:bg-deepsea-50 hover:text-deepsea-800 flex flex-col items-center gap-0.5">
+        <i class="fa-solid fa-wallet text-sm text-softgold-500"></i>
+        <span>保費續保</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- 自訂訊息提示框（取代 alert()） -->
+  <div id="toast-box" class="fixed top-20 right-4 z-50 transform translate-x-full opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="bg-deepsea-900 text-white px-4 py-3 rounded-2xl shadow-lg flex items-center gap-2.5 text-sm border border-white/15">
+      <i class="fa-solid fa-circle-check text-emerald-400"></i>
+      <span id="toast-message">已複製保障摘要！</span>
+    </div>
+  </div>
+
+  <!-- 互動邏輯腳本 -->
+  <script>
+    // =========================================================================
+    // 1. 通用收合面板控制（以 inline display: none / block 確保預設絕對收合）
+    // =========================================================================
+    function togglePanel(panelId, btnId) {
+      const panel = document.getElementById(panelId);
+      const btn = document.getElementById(btnId);
+      if (!panel) return;
+
+      const isHidden = (panel.style.display === 'none' || panel.style.display === '');
+      if (isHidden) {
+        panel.style.display = 'block';
+        if (btn) {
+          if (btn.id === 'wellness-std-btn') {
+            btn.textContent = '收合女性標準 ▲';
+          } else {
+            btn.innerHTML = '<span>點擊收合 ▲</span>';
+          }
+          const parentBtn = btn.closest('button');
+          if (parentBtn) parentBtn.setAttribute('aria-expanded', 'true');
+        }
+      } else {
+        panel.style.display = 'none';
+        if (btn) {
+          if (btn.id === 'wellness-std-btn') {
+            btn.textContent = '查看 5 項女性標準 ▼';
+          } else {
+            btn.innerHTML = '<span>點擊展開 ▼</span>';
+          }
+          const parentBtn = btn.closest('button');
+          if (parentBtn) parentBtn.setAttribute('aria-expanded', 'false');
+        }
+      }
+    }
+
+    // =========================================================================
+    // 2. 字體大小切換功能（1.18x 放大倍率）
+    // =========================================================================
+    function setFontSize(mode) {
+      const htmlEl = document.documentElement;
+      const btnNormal = document.getElementById('btn-font-normal');
+      const btnLarge = document.getElementById('btn-font-large');
+
+      if (mode === 'large') {
+        htmlEl.classList.add('large-text');
+        btnLarge.className = 'px-2.5 py-1 rounded-lg text-xs sm:text-sm font-semibold bg-deepsea-800 text-white shadow-sm transition cursor-pointer';
+        btnNormal.className = 'px-2.5 py-1 rounded-lg text-xs sm:text-sm font-semibold text-slate-600 hover:text-deepsea-800 transition cursor-pointer';
+      } else {
+        htmlEl.classList.remove('large-text');
+        btnNormal.className = 'px-2.5 py-1 rounded-lg text-xs sm:text-sm font-semibold bg-white text-deepsea-800 shadow-sm transition cursor-pointer';
+        btnLarge.className = 'px-2.5 py-1 rounded-lg text-xs sm:text-sm font-semibold text-slate-600 hover:text-deepsea-800 transition cursor-pointer';
+      }
+    }
+
+    // =========================================================================
+    // 3. 五大真實醫療情境理賠模擬器（條款精準核算版）
+    // =========================================================================
+    const scenariosData = {
+      '1': {
+        badge: '情境 1｜免住院門診處置',
+        title: '門診大腸鏡息肉切除術（免住院）',
+        subtitle: '定額處置金 13,000 元免住院確定給付；1HS 門診手術限額 30,000 元則依條款手術定義核實啟動：',
+        total: '13,000 元（定額保底）',
+        totalSub: '若符合手術定義最高合計可達 43,000 元',
+        totalNote: '20HPSI2 與 1SIR 特定處置表明確列示「大腸鏡息肉切除術」，免住院即可定額理賠 13,000 元。',
+        items: [
+          {
+            policy: '20HPSI2 溢同安心2手術（1單位）',
+            name: '特定處置醫療保險金（條款附表二明確列示「大腸鏡息肉切除術」）',
+            rule: '條款附表二定額 / 次',
+            amountText: 'NT$ 10,000'
+          },
+          {
+            policy: '1SIR 手握幸福手術（3單位）',
+            name: '門診特定處置醫療保險金（條款附表四明確列示「大腸鏡息肉切除術」）',
+            rule: '條款附表四定額 / 次',
+            amountText: 'NT$ 3,000'
+          },
+          {
+            policy: '1HS 實踐幸福實支-A型（1份）',
+            name: '門診手術費用保險金（需符合保單條款附表三第 758 項，或健保支付標準 2-2-7 / 3-3-4-3 手術章節之啟動條件）',
+            rule: '限額 30,000 元內實支實付',
+            amountText: '最高 NT$ 30,000'
+          }
+        ],
+        highlight: '條款核對重點：門診內視鏡息肉切除若在健保歸類為處置，20HPSI2 與 1SIR 仍確定定額給付 13,000 元保底；若術式符合 1HS 附表三第 758 項或健保 2-2-7 / 3-3-4-3 手術章節，即可再核銷最高 30,000 元。'
+      },
+      '2': {
+        badge: '情境 2｜疾病住院 4 天',
+        title: '腹腔鏡膽囊切除（住院 4 天，病房及雜費實支實付 70,000 元）',
+        subtitle: '已逐條核對 20STCB 附表一第 788 項、20HPSI2 手術表與 1HS 實支實付擇優給付：',
+        total: '147,500 元',
+        totalSub: '全數項目條款精準加總（含住院前後二週門診各 1 次）',
+        totalNote: '細項加總：6,000 + 6,000 + 10,500 + 30,000 + 8,000 + 1,000 + 15,000 + 70,000 ＝ 147,500 元。',
+        items: [
+          {
+            policy: '1HS 實踐幸福實支-A型（1份）',
+            name: '住院醫療實支實付（病房及雜費實支實付 70,000 元；優於日額型 3,600×4＝14,400 元擇優給付）',
+            rule: '無自負額限額內實支實付',
+            amountText: 'NT$ 70,000'
+          },
+          {
+            policy: '20HPSI2 溢同安心2手術（1單位）',
+            name: '手術醫療保險金（條款附表一定額給付「腹腔鏡膽囊切除術」）',
+            rule: '條款附表一定額 / 次',
+            amountText: 'NT$ 30,000'
+          },
+          {
+            policy: '1SIR 手握幸福手術（3單位）',
+            name: '住院手術暨特定處置醫療保險金',
+            rule: '定額給付 / 次',
+            amountText: 'NT$ 15,000'
+          },
+          {
+            policy: '20STCB 優樂康護短照（1,500元）',
+            name: '術後出院短期照顧加值保險金（核對附表一第 788 項，日額 7 倍）',
+            rule: '定額給付 / 次',
+            amountText: 'NT$ 10,500'
+          },
+          {
+            policy: '1HIR 日臻幸福住院日額（2,000元）',
+            name: '住院日額保險金（2,000 元 × 4 天）',
+            rule: '定額 2,000 元 / 日',
+            amountText: 'NT$ 8,000'
+          },
+          {
+            policy: '20STCB 優樂康護短照（1,500元）',
+            name: '住院看護保險金（1,500 元 × 4 天）',
+            rule: '定額 1,500 元 / 日',
+            amountText: 'NT$ 6,000'
+          },
+          {
+            policy: '20STCB 優樂康護短照（1,500元）',
+            name: '出院短期照顧保險金（1,500 元 × 4 天）',
+            rule: '定額 1,500 元 / 日',
+            amountText: 'NT$ 6,000'
+          },
+          {
+            policy: '1HIR ＋ 1HS 住院前後門診',
+            name: '住院前後二週門診醫療（1HIR 定額 500 元 ＋ 1HS 實支最高 500 元）',
+            rule: '住院前後門診津貼',
+            amountText: 'NT$ 1,000'
+          }
+        ],
+        highlight: '條款核對重點：核對 20STCB 附表一第 788 項確認「腹腔鏡膽囊切除術」在列，確定啟動 10,500 元術後加值金；加上住院看護 6,000 元與出院短照 6,000 元，光短照主約即提供 22,500 元照護支持。'
+      },
+      '3': {
+        badge: '情境 3｜加護病房 2 天＋一般病房 4 天',
+        title: '急性心肌梗塞住加護病房 2 天＋一般病房 4 天，置放 1 支心導管塗藥支架',
+        subtitle: '曾入住加護病房時，1HS 雜費限額自動翻倍至 40 萬元；1SIR 另提供心臟血管支架特定醫材補助：',
+        total: '196,500 元',
+        totalSub: '條款核對細項精準加總（合計 6 天住院）',
+        totalNote: '細項加總：9,000 + 9,000 + 10,500 + 25,000 + 12,000 + 4,000 + 1,000 + 15,000 + 15,000 + 96,000 ＝ 196,500 元。',
+        items: [
+          {
+            policy: '1HS 實踐幸福實支-A型（1份）',
+            name: '加護病房提升限額實支實付（曾入住加護病房雜費上限翻倍至 40 萬、病房限額升至 6,000 元/日）',
+            rule: '加護病房限額翻倍實支',
+            amountText: 'NT$ 96,000'
+          },
+          {
+            policy: '20HPSI2 溢同安心2手術（1單位）',
+            name: '特定處置醫療保險金（條款附表二明確列示「心導管合併支架置放術」）',
+            rule: '條款附表二定額 / 次',
+            amountText: 'NT$ 25,000'
+          },
+          {
+            policy: '1SIR 手握幸福手術（3單位）',
+            name: '住院特定處置醫療保險金',
+            rule: '定額給付 / 次',
+            amountText: 'NT$ 15,000'
+          },
+          {
+            policy: '1SIR 手握幸福手術（3單位）',
+            name: '心臟血管支架置放特定醫材補助保險金（同一保單年度以 1 次為限）',
+            rule: '特定醫材定額補助',
+            amountText: 'NT$ 15,000'
+          },
+          {
+            policy: '1HIR 日臻幸福住院日額（2,000元）',
+            name: '住院日額保險金（2,000 元 × 6 天）',
+            rule: '定額 2,000 元 / 日',
+            amountText: 'NT$ 12,000'
+          },
+          {
+            policy: '20STCB 優樂康護短照（1,500元）',
+            name: '術後出院短期照顧加值保險金（核對附表二第 6 項，日額 7 倍）',
+            rule: '定額給付 / 次',
+            amountText: 'NT$ 10,500'
+          },
+          {
+            policy: '20STCB 優樂康護短照（1,500元）',
+            name: '住院看護保險金（1,500 元 × 6 天）',
+            rule: '定額 1,500 元 / 日',
+            amountText: 'NT$ 9,000'
+          },
+          {
+            policy: '20STCB 優樂康護短照（1,500元）',
+            name: '出院短期照顧保險金（1,500 元 × 6 天）',
+            rule: '定額 1,500 元 / 日',
+            amountText: 'NT$ 9,000'
+          },
+          {
+            policy: '1HIR 日臻幸福住院日額（2,000元）',
+            name: '加護病房暨燒燙傷中心醫療保險金（另給付 2,000 元 × 2 天）',
+            rule: '加護病房另給付日額',
+            amountText: 'NT$ 4,000'
+          },
+          {
+            policy: '1HIR ＋ 1HS 住院前後門診',
+            name: '住院前後二週門診醫療（1HIR 定額 500 元 ＋ 1HS 實支最高 500 元）',
+            rule: '住院前後門診津貼',
+            amountText: 'NT$ 1,000'
+          }
+        ],
+        highlight: '條款核對重點：核對 20STCB 附表二第 6 項確認「心導管合併支架置放術」在列，術後加值金 10,500 元確定啟動；搭配 1SIR 支架醫材補助 15,000 元與 1HS 加護病房 40 萬雜費額度，完整覆蓋塗藥支架自費。'
+      },
+      '4': {
+        badge: '情境 4｜意外住院 6 天',
+        title: '意外導致股骨閉鎖性骨折並施行見血復位術（住院 6 天）',
+        subtitle: '依 SBBR 第十條附表骨折成數與 DHI 第三條附表骨折所定日數精準核算，並啟動 PAMR 意外實支：',
+        total: '332,000 元',
+        totalSub: '含 SBBR 骨折定額 112,500 元 ＋ DHI 住院與未住院折半 56,000 元',
+        totalNote: '細項加總：112,500 + 12,000 + 44,000 + 9,000 + 9,000 + 10,500 + 20,000 + 12,000 + 15,000 + 58,000 + 30,000 ＝ 332,000 元。',
+        items: [
+          {
+            policy: 'SBBR 意外骨折及特定手術（50萬元）',
+            name: '意外骨折保險金：股骨開放性 30% × 閉鎖性見血復位 75%（50 萬 × 30% × 75%）',
+            rule: '條款附表精準成數定額',
+            amountText: 'NT$ 112,500'
+          },
+          {
+            policy: '1HS 實踐幸福實支-A型（1份）',
+            name: '住院病房及雜費實支實付（核銷自費鈦合金鋼板與病房差額）',
+            rule: '無自負額限額內實支實付',
+            amountText: 'NT$ 58,000'
+          },
+          {
+            policy: 'DHI 意外傷害醫療日額（2,000元）',
+            name: '骨折未住院折半計算：附表股骨完全骨折 50 天 − 實際住院 6 天 ＝ 未住院 44 天 × 1,000 元',
+            rule: '骨折未住院日數折半換算',
+            amountText: 'NT$ 44,000'
+          },
+          {
+            policy: 'PAMR 成意實足意外實支（3計劃）',
+            name: '意外傷害醫療實支實付（每次限額 30,000 元；若連續 3 保單年度無理賠可提高至 45,000 元）',
+            rule: '意外傷害醫療限額實支',
+            amountText: 'NT$ 30,000'
+          },
+          {
+            policy: '20HPSI2 溢同安心2手術（1單位）',
+            name: '手術醫療保險金（條款附表一「股骨幹骨折開放性復位術」定額給付）',
+            rule: '條款附表一定額 / 次',
+            amountText: 'NT$ 20,000'
+          },
+          {
+            policy: '1SIR 手握幸福手術（3單位）',
+            name: '住院手術暨特定處置醫療保險金',
+            rule: '定額給付 / 次',
+            amountText: 'NT$ 15,000'
+          },
+          {
+            policy: 'DHI 意外傷害醫療日額（2,000元）',
+            name: '意外住院日額保險金（實際住院 6 天 × 2,000 元）',
+            rule: '定額 2,000 元 / 日',
+            amountText: 'NT$ 12,000'
+          },
+          {
+            policy: '1HIR 日臻幸福住院日額（2,000元）',
+            name: '住院日額保險金（2,000 元 × 6 天）',
+            rule: '定額 2,000 元 / 日',
+            amountText: 'NT$ 12,000'
+          },
+          {
+            policy: '20STCB 優樂康護短照（1,500元）',
+            name: '術後出院短期照顧加值保險金（日額 7 倍）',
+            rule: '定額給付 / 次',
+            amountText: 'NT$ 10,500'
+          },
+          {
+            policy: '20STCB 優樂康護短照（1,500元）',
+            name: '住院看護保險金（1,500 元 × 6 天）',
+            rule: '定額 1,500 元 / 日',
+            amountText: 'NT$ 9,000'
+          },
+          {
+            policy: '20STCB 優樂康護短照（1,500元）',
+            name: '出院短期照顧保險金（1,500 元 × 6 天）',
+            rule: '定額 1,500 元 / 日',
+            amountText: 'NT$ 9,000'
+          }
+        ],
+        highlight: '條款核對重點：SBBR 依股骨 30%×75% 直接理賠 112,500 元；DHI 依附表股骨 50 天扣除住院 6 天後，剩餘 44 天在家休養仍折半給付 44,000 元；PAMR 若連續 3 保單年度無理賠，限額更自動提高至 45,000 元。'
+      },
+      '5': {
+        badge: '情境 5｜第 2 保單年度後確診',
+        title: '第 2 保單年度後確診重度乳癌（住院 5 天接受單側改良式乳房根除手術）',
+        subtitle: '100 萬抗癌一次金免收據自由運用於標靶新藥，搭配住院手術與實支實付支應手術住院開銷：',
+        total: '1,255,500 元',
+        totalSub: '含 100 萬重度癌症一次金 ＋ 255,500 元住院手術與短照給付',
+        totalNote: '細項加總：1,000,000 + 7,500 + 7,500 + 10,500 + 40,000 + 10,000 + 1,000 + 15,000 + 164,000 ＝ 1,255,500 元。',
+        items: [
+          {
+            policy: '20SC 長青滿溢癌症定期險（100萬元）',
+            name: '首次罹患癌症（重度）保險金（第 2 保單年度後確診定額給付 100 萬元，給付後本契約終止）',
+            rule: '整筆定額一次金（免收據）',
+            amountText: 'NT$ 1,000,000'
+          },
+          {
+            policy: '1HS 實踐幸福實支-A型（1份）',
+            name: '住院病房及雜費實支實付（核銷自費藥物、耗材與病房費差額，上限 20 萬）',
+            rule: '無自負額限額內實支實付',
+            amountText: 'NT$ 164,000'
+          },
+          {
+            policy: '20HPSI2 溢同安心2手術（1單位）',
+            name: '手術醫療保險金（條款附表一第 69 項「單側改良式乳房根除術」定額給付）',
+            rule: '條款附表一定額 / 次',
+            amountText: 'NT$ 40,000'
+          },
+          {
+            policy: '1SIR 手握幸福手術（3單位）',
+            name: '住院手術暨特定處置醫療保險金',
+            rule: '定額給付 / 次',
+            amountText: 'NT$ 15,000'
+          },
+          {
+            policy: '20STCB 優樂康護短照（1,500元）',
+            name: '術後出院短期照顧加值保險金（日額 7 倍）',
+            rule: '定額給付 / 次',
+            amountText: 'NT$ 10,500'
+          },
+          {
+            policy: '1HIR 日臻幸福住院日額（2,000元）',
+            name: '住院日額保險金（2,000 元 × 5 天）',
+            rule: '定額 2,000 元 / 日',
+            amountText: 'NT$ 10,000'
+          },
+          {
+            policy: '20STCB 優樂康護短照（1,500元）',
+            name: '住院看護保險金（1,500 元 × 5 天）',
+            rule: '定額 1,500 元 / 日',
+            amountText: 'NT$ 7,500'
+          },
+          {
+            policy: '20STCB 優樂康護短照（1,500元）',
+            name: '出院短期照顧保險金（1,500 元 × 5 天）',
+            rule: '定額 1,500 元 / 日',
+            amountText: 'NT$ 7,500'
+          },
+          {
+            policy: '1HIR ＋ 1HS 住院前後門診',
+            name: '住院前後二週門診醫療（1HIR 定額 500 元 ＋ 1HS 實支最高 500 元）',
+            rule: '住院前後門診津貼',
+            amountText: 'NT$ 1,000'
+          }
+        ],
+        highlight: '條款核對重點：20SC 給付重度癌症 100 萬元後契約雖依約終止，但依「南山人壽附約延續附加條款」，其餘醫療與意外附約皆可申請延續效力，持續守護後續化放療與追蹤需求。'
+      }
+    };
+
+    function selectScenario(key) {
+      document.querySelectorAll('.scenario-btn').forEach(btn => {
+        btn.className = 'scenario-btn shrink-0 px-4 py-3 rounded-2xl border-2 text-left transition cursor-pointer bg-white border-slate-200 text-slate-700 hover:border-deepsea-300';
+        btn.querySelector('div:first-child').className = 'text-xs text-slate-500 font-medium';
+      });
+      const activeBtn = document.getElementById(`tab-scenario-${key}`);
+      activeBtn.className = 'scenario-btn shrink-0 px-4 py-3 rounded-2xl border-2 text-left transition cursor-pointer bg-deepsea-800 border-deepsea-800 text-white shadow-sm';
+      activeBtn.querySelector('div:first-child').className = 'text-xs text-amber-300 font-medium';
+
+      const data = scenariosData[key];
+      const container = document.getElementById('scenario-display');
+
+      const itemsHtml = data.items.map(item => `
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between py-3 px-4 rounded-xl bg-warmbg border border-slate-100 gap-2 sm:gap-4">
+          <div class="space-y-1 max-w-2xl">
+            <span class="inline-block text-[11px] font-bold text-deepsea-800 bg-deepsea-50 px-2 py-0.5 rounded-md">${item.policy}</span>
+            <p class="font-semibold text-sm text-slate-800 leading-snug">${item.name}</p>
+          </div>
+          <div class="flex items-center justify-between sm:justify-end gap-4 shrink-0 pt-1.5 sm:pt-0 border-t sm:border-t-0 border-slate-200/60">
+            <span class="text-xs text-slate-500">${item.rule}</span>
+            <span class="font-bold text-base sm:text-lg text-emeraldcare-600">${item.amountText}</span>
+          </div>
+        </div>
+      `).join('');
+
+      container.innerHTML = `
+        <div class="p-6 sm:p-8 space-y-6">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-100 pb-5">
+            <div class="space-y-2 max-w-2xl">
+              <span class="inline-block text-xs font-bold bg-emeraldcare-50 text-emeraldcare-700 border border-emeraldcare-200 px-3 py-1 rounded-full">${data.badge}</span>
+              <h3 class="text-lg sm:text-xl font-bold text-deepsea-900 leading-snug">${data.title}</h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">${data.subtitle}</p>
+            </div>
+
+            <div class="bg-gradient-to-br from-emeraldcare-700 to-deepsea-800 text-white rounded-2xl p-5 sm:min-w-[270px] shadow-sm">
+              <span class="text-xs text-emerald-100 block">條款精準核算理賠合計</span>
+              <div class="text-2xl sm:text-3xl font-bold text-amber-300 mt-1">NT$ ${data.total}</div>
+              <div class="text-xs font-semibold text-emerald-200 mt-1">${data.totalSub}</div>
+              <p class="text-[11px] text-white/85 mt-2 pt-2 border-t border-white/15 leading-relaxed">${data.totalNote}</p>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            ${itemsHtml}
+          </div>
+
+          <div class="bg-softgold-50 border border-softgold-200 rounded-2xl p-4 text-xs sm:text-sm text-slate-800 flex items-start gap-3">
+            <i class="fa-solid fa-lightbulb text-softgold-500 text-base mt-0.5 shrink-0"></i>
+            <p class="leading-relaxed">${data.highlight}</p>
+          </div>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // 4. 10 項保障險種白話拆解（無續保標籤徽章，預設全收合）
+    // =========================================================================
+    const policiesData = [
+      {
+        id: 1,
+        category: 'main',
+        categoryLabel: '20年期主約',
+        name: '南山人壽長青滿溢癌症定期健康保險',
+        code: '20SC',
+        term: '繳費 20 年（保障至78歲）',
+        amount: '100萬元',
+        premium: '22,300元',
+        details: [
+          '首次罹患癌症（重度）：第 1 保單年度內定額 24,530 元；第 2 保單年度（含）以後定額 1,000,000 元（給付後契約終止，按日數比例退還未到期保費）。',
+          '首次罹患癌症（初期或輕度）：第 1 保單年度內定額 24,530 元；第 2 保單年度（含）以後定額 100,000 元（保險期間內以 1 次為限）。',
+          '外溢回饋：健康促進回饋金最高 10%（5A體位）＋ 防疫保健回饋金 2%（指定疫苗或四癌篩檢）。',
+          '癌症等待期為 90 日。'
+        ]
+      },
+      {
+        id: 2,
+        category: 'main',
+        categoryLabel: '20年期主約',
+        name: '南山人壽優樂康護短期照顧終身健康保險',
+        code: '20STCB',
+        term: '繳費 20 年（保障至99歲）',
+        amount: '1,500元',
+        premium: '22,095元',
+        details: [
+          '住院看護保險金：定額 1,500 元/日。',
+          '出院短期照顧保險金：定額 1,500 元/日（依實際住院日數給付）。',
+          '術後出院短期照顧加值保險金：住院接受保單條款附表一手術或附表二特定處置，另定額給付 10,500 元/次（單位日額 7 倍）。',
+          '累計最高總給付上限為單位日額 3,000 倍（450 萬元）；疾病等待期 30 日。'
+        ]
+      },
+      {
+        id: 3,
+        category: 'main',
+        categoryLabel: '20年期主約',
+        name: '南山人壽溢同安心2手術醫療保險',
+        code: '20HPSI2',
+        term: '繳費 20 年（保障至95歲）',
+        amount: '1單位',
+        premium: '18,491元',
+        details: [
+          '手術醫療保險金：每次 1,000 ~ 100,000 元（依手術項目等級表給付）。',
+          '處置醫療保險金：特定處置每次 1,000 ~ 35,000 元；創傷縫合每次 1,000 ~ 3,000 元。',
+          '一至六級失能豁免保險費；95 歲滿期或身故退還「年繳保費總和 × 健康促進係數（A級 1.0、S級 1.05）」扣除累計已領保險金。',
+          '累計醫療給付最高上限 150 萬元；疾病等待期 30 日。'
+        ]
+      },
+      {
+        id: 4,
+        category: 'medical',
+        categoryLabel: '住院手術醫療',
+        name: '南山人壽日臻幸福住院日額健康保險附約',
+        code: '1HIR',
+        term: '繳費 1 年（最高續保至85歲）',
+        amount: '2,000元',
+        premium: '5,060元',
+        details: [
+          '住院日額保險金：第 1～30 日定額 2,000 元/日；第 31 日（含）以上加倍為 4,000 元/日。',
+          '加護病房暨燒燙傷中心：另額外給付 2,000 元/日；住院前後二週門診定額 500 元/次。',
+          '享健康促進最高 10% ＋ 防疫保健 2% 回饋；疾病等待期 30 日。'
+        ]
+      },
+      {
+        id: 5,
+        category: 'medical',
+        categoryLabel: '住院手術醫療',
+        name: '南山人壽手握幸福手術醫療健康保險附約',
+        code: '1SIR',
+        term: '繳費 1 年（最高續保至85歲）',
+        amount: '3單位',
+        premium: '2,910元',
+        details: [
+          '住院手術暨特定處置：定額 15,000 元/次；門診手術暨特定處置：定額 3,000 元/次；創傷縫合處置：定額 3,000 元/次。',
+          '特定醫材補助保險金：住院接受人工髖關節置換、人工膝關節置換或心臟血管支架置放，另定額補助 15,000 元/次（同一保單年度限 1 次）。',
+          '享健康促進最高 10% ＋ 附加 PHCB 防疫保健 2% 回饋；疾病等待期 30 日。'
+        ]
+      },
+      {
+        id: 6,
+        category: 'medical',
+        categoryLabel: '住院手術醫療',
+        name: '南山人壽實踐幸福住院醫療健康保險附約-A型',
+        code: '1HS',
+        term: '繳費 1 年（最高續保至75歲）',
+        amount: '1份',
+        premium: '12,000元',
+        details: [
+          '每日病房費用實支限額：一般病房 3,000 元/日；曾入住加護病房/燒燙傷中心翻倍至 6,000 元/日（最長 365 天）。',
+          '醫院各項雜費及手術費限額：一般病房 200,000 元/次；曾入住加護病房/燒燙傷中心翻倍至 400,000 元/次（不具自負額）。',
+          '門診手術費用限額：每次 30,000 元（每年 6 次為限）；住院前後門診限額 500 元/次；或可擇優改領住院日額 3,600 元/日；疾病等待期 30 日。'
+        ]
+      },
+      {
+        id: 7,
+        category: 'accident',
+        categoryLabel: '意外傷害保障',
+        name: '南山人壽意外骨折及特定手術傷害醫療保險附約',
+        code: 'SBBR',
+        term: '繳費 1 年（最高續保至75歲）',
+        amount: '50萬元',
+        premium: '2,750元',
+        details: [
+          '意外骨折保險金：開放性骨折 10,000～175,000 元；閉鎖性並見血復位 7,500～131,250 元（75%）；閉鎖性未見血復位 2,500～43,750 元（25%）。',
+          '意外內臟或腦損傷切開手術定額 125,000 元/次；意外脫臼切開手術 25,000～75,000 元/次。',
+          '特定交通事故重大創傷（連續住院 5 日以上）定額 150,000 元；意外第一級失能最高 500,000 元。'
+        ]
+      },
+      {
+        id: 8,
+        category: 'accident',
+        categoryLabel: '意外傷害保障',
+        name: '南山人壽成意實足意外傷害醫療保險附約',
+        code: 'PAMR',
+        term: '繳費 1 年（最高續保至75歲）',
+        amount: '3計劃',
+        premium: '4,075元',
+        details: [
+          '意外傷害醫療實支實付：每次限額 30,000 元（連續 3 保單年度無理賠，當年度提高至 45,000 元）。',
+          '意外身故/失能 2,000,000 元；航空、水陸大眾運輸及天然災害意外身故/失能另各給付 2,000,000 元。',
+          '意外 1～6 級失能補償金最高 20,000 元/月（給付 100 個月）；意外重大燒燙傷最高 500,000 元；特定交通事故重大創傷 200,000 元。'
+        ]
+      },
+      {
+        id: 9,
+        category: 'accident',
+        categoryLabel: '意外傷害保障',
+        name: '南山人壽新傷害保險附約',
+        code: 'NAI',
+        term: '繳費 1 年（最高續保至65歲）',
+        amount: '50萬元',
+        premium: '1,800元',
+        details: [
+          '意外身故或喪葬費用保險金：定額 500,000 元；意外失能保險金：25,000～500,000 元。',
+          '意外部分喪失工作能力：625 元/週（最高 4 週）；意外完全喪失工作能力：52 週內 3,750 元/週、第 53～104 週 1,875 元/週，滿二年後仍失能每月 4,167 元（最長 15 年）。'
+        ]
+      },
+      {
+        id: 10,
+        category: 'accident',
+        categoryLabel: '意外傷害保障',
+        name: '南山人壽意外傷害醫療日額給付附加條款',
+        code: 'DHI',
+        term: '繳費 1 年（最高續保至75歲）',
+        amount: '2,000元',
+        premium: '1,340元',
+        details: [
+          '意外傷害住院日額：定額 2,000 元/日；入住加護病房或燒燙傷中心期間加倍為 4,000 元/日（同一事故最高 365 日）。',
+          '骨折未住院日額換算：依條款第三條附表之骨折所定日數（如股骨 50 天），扣除實際住院日數後折半換算給付日額保險金。'
+        ]
+      }
+    ];
+
+    let currentFilter = 'all';
+
+    function filterPolicies(category) {
+      currentFilter = category;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.className = 'filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition cursor-pointer';
+      });
+      document.getElementById(`filter-${category}`).className = 'filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-deepsea-800 text-white shadow-sm transition cursor-pointer';
+      renderPolicies();
+    }
+
+    function renderPolicies() {
+      const listContainer = document.getElementById('policy-list');
+      const filtered = currentFilter === 'all'
+        ? policiesData
+        : policiesData.filter(p => p.category === currentFilter);
+
+      listContainer.innerHTML = filtered.map(p => {
+        const badgeColor = p.category === 'main'
+          ? 'bg-deepsea-50 text-deepsea-800 border-deepsea-200'
+          : p.category === 'medical'
+            ? 'bg-emeraldcare-50 text-emeraldcare-700 border-emeraldcare-200'
+            : 'bg-softgold-50 text-softgold-700 border-softgold-200';
+
+        const detailsList = p.details.map(d => `
+          <li class="flex items-start gap-2 text-xs sm:text-sm text-slate-700 leading-relaxed">
+            <i class="fa-solid fa-circle-check text-emeraldcare-600 mt-1 shrink-0 text-xs"></i>
+            <span>${d}</span>
+          </li>
+        `).join('');
+
+        return `
+          <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden transition hover:border-deepsea-300">
+            <button type="button" onclick="togglePanel('policy-body-${p.id}', 'policy-btn-${p.id}')" aria-expanded="false" class="w-full p-4 sm:p-5 text-left flex flex-col sm:flex-row sm:items-center justify-between gap-3 cursor-pointer">
+              <div class="space-y-1.5">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="text-xs font-bold px-2.5 py-0.5 rounded-md border ${badgeColor}">${p.categoryLabel}</span>
+                  <span class="text-xs font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded">${p.code}</span>
+                  <span class="text-xs text-slate-500">${p.term}</span>
+                </div>
+                <h3 class="text-base sm:text-lg font-bold text-deepsea-900">${p.name}</h3>
+              </div>
+
+              <div class="flex items-center justify-between sm:justify-end gap-4 pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-100 shrink-0">
+                <div class="text-left sm:text-right">
+                  <span class="text-xs text-slate-500 block">保額：<strong>${p.amount}</strong></span>
+                  <span class="text-sm sm:text-base font-bold text-deepsea-800">年繳 ${p.premium}</span>
+                </div>
+                <div id="policy-btn-${p.id}" class="text-xs font-semibold text-deepsea-800 bg-deepsea-50 px-3 py-1.5 rounded-xl shrink-0">
+                  <span>點擊展開 ▼</span>
+                </div>
+              </div>
+            </button>
+
+            <!-- 預設完全收合 -->
+            <div id="policy-body-${p.id}" class="collapsible-panel px-4 sm:px-6 pb-5 pt-3 border-t border-slate-100 bg-warmbg/70" style="display: none;">
+              <ul class="space-y-1.5">
+                ${detailsList}
+              </ul>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // =========================================================================
+    // 5. 外溢回饋試算器邏輯
+    // =========================================================================
+    const WELLNESS_BASE = 42270; // 20SC(22,300) + 1HIR(5,060) + 1SIR(2,910) + 1HS(12,000)
+    let currentTierRate = 10;
+    let hasVaccineBonus = true;
+
+    function setWellnessTier(rate) {
+      currentTierRate = rate;
+      [10, 5, 3, 1, 0].forEach(r => {
+        const btn = document.getElementById(`tier-${r}`);
+        const extraClass = (r === 0) ? ' col-span-2 sm:col-span-1' : '';
+        if (r === rate) {
+          btn.className = 'tier-btn p-3 rounded-xl border-2 border-emeraldcare-600 bg-emeraldcare-50 text-emeraldcare-800 text-center transition cursor-pointer' + extraClass;
+          btn.querySelector('div:last-child').className = 'text-xs font-bold text-emeraldcare-600 mt-0.5';
+        } else {
+          btn.className = 'tier-btn p-3 rounded-xl border-2 border-slate-200 bg-white text-slate-700 hover:border-emeraldcare-300 text-center transition cursor-pointer' + extraClass;
+          btn.querySelector('div:last-child').className = 'text-xs text-slate-500 mt-0.5';
+        }
+      });
+      updateWellnessCalc();
+    }
+
+    function setVaccineBonus(status) {
+      hasVaccineBonus = status;
+      const btnYes = document.getElementById('vax-yes');
+      const btnNo = document.getElementById('vax-no');
+
+      if (status) {
+        btnYes.className = 'p-3.5 rounded-xl border-2 border-emeraldcare-600 bg-emeraldcare-50 text-emeraldcare-800 flex items-center justify-between transition cursor-pointer';
+        btnNo.className = 'p-3.5 rounded-xl border-2 border-slate-200 bg-white text-slate-600 hover:border-slate-300 flex items-center justify-between transition cursor-pointer';
+      } else {
+        btnYes.className = 'p-3.5 rounded-xl border-2 border-slate-200 bg-white text-slate-600 hover:border-slate-300 flex items-center justify-between transition cursor-pointer';
+        btnNo.className = 'p-3.5 rounded-xl border-2 border-emeraldcare-600 bg-emeraldcare-50 text-emeraldcare-800 flex items-center justify-between transition cursor-pointer';
+      }
+      updateWellnessCalc();
+    }
+
+    function updateWellnessCalc() {
+      const vaxRate = hasVaccineBonus ? 2 : 0;
+      const totalRate = currentTierRate + vaxRate;
+      const tierAmount = Math.round(WELLNESS_BASE * (currentTierRate / 100));
+      const vaxAmount = Math.round(WELLNESS_BASE * (vaxRate / 100));
+      const totalAmount = tierAmount + vaxAmount;
+
+      document.getElementById('wellness-rate-badge').textContent = `合計回饋 ${totalRate}%`;
+      document.getElementById('wellness-total-amount').textContent = totalAmount.toLocaleString();
+      document.getElementById('wellness-formula-text').textContent =
+        `明細：健康促進 ${tierAmount.toLocaleString()} 元 (${currentTierRate}%) ＋ 防疫保健 ${vaxAmount.toLocaleString()} 元 (${vaxRate}%)`;
+    }
+
+    // =========================================================================
+    // 6. 繳費方式試算互動切換
+    // =========================================================================
+    const paymentModes = {
+      'annual_discount': {
+        label: '年繳（自動轉帳 / 南山人壽聯名卡 1% 折扣後）',
+        total: '91,893 元 / 年',
+        sub: '原價 92,821 元，首年現省 928 元（扣款成功享 1% 折扣）',
+        main: '62,257 元（原價 62,886 元）',
+        rider: '29,636 元（原價 29,935 元）'
+      },
+      'annual': {
+        label: '年繳（標準自行繳費）',
+        total: '92,821 元 / 年',
+        sub: '每年繳納一次，全年保障完整啟動',
+        main: '62,886 元',
+        rider: '29,935 元'
+      },
+      'semi': {
+        label: '半年繳',
+        total: '48,266 元 / 期',
+        sub: '每 6 個月繳納一次（全年合計 96,532 元）',
+        main: '32,700 元',
+        rider: '15,566 元'
+      },
+      'quarter': {
+        label: '季繳',
+        total: '24,321 元 / 期',
+        sub: '每 3 個月繳納一次（全年合計 97,284 元）',
+        main: '16,477 元',
+        rider: '7,844 元'
+      },
+      'month': {
+        label: '月繳',
+        total: '8,168 元 / 期',
+        sub: '每月彈性扣款（平均每天約 272 元）',
+        main: '5,533 元',
+        rider: '2,635 元'
+      }
+    };
+
+    function selectPaymentMode(mode) {
+      document.querySelectorAll('.paymode-btn').forEach(btn => {
+        btn.className = 'paymode-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-warmbg text-slate-700 border border-slate-200 hover:border-deepsea-300 transition cursor-pointer';
+      });
+      const activeBtn = document.getElementById(`paybtn-${mode}`);
+      if (activeBtn) {
+        activeBtn.className = 'paymode-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-deepsea-800 text-white shadow-sm transition cursor-pointer';
+      }
+
+      const d = paymentModes[mode];
+      const box = document.getElementById('payment-detail-box');
+      if (box && d) {
+        box.innerHTML = `
+          <div class="md:col-span-2 space-y-1">
+            <span class="text-xs font-bold text-emeraldcare-600">${d.label}</span>
+            <div class="text-2xl sm:text-3xl font-bold text-deepsea-900">${d.total}</div>
+            <p class="text-xs text-slate-500">${d.sub}</p>
+          </div>
+          <div class="bg-white rounded-xl p-4 border border-slate-200/80 space-y-1.5 text-xs sm:text-sm">
+            <div class="flex justify-between gap-2">
+              <span class="text-slate-500">主契約保費小計：</span>
+              <strong class="text-deepsea-900">${d.main}</strong>
+            </div>
+            <div class="flex justify-between gap-2 pt-1.5 border-t border-slate-100">
+              <span class="text-slate-500">附約保費小計：</span>
+              <strong class="text-deepsea-900">${d.rider}</strong>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    // =========================================================================
+    // 7. 複製摘要與自訂提示框（絕不使用 alert()）
+    // =========================================================================
+    function copySummaryText() {
+      const summary = [
+        '【南山人壽｜徐秀珍小姐 專屬醫療與意外保障規劃書摘要】',
+        '被保險人：徐秀珍小姐（59歲・女性・職業代碼150）｜列印日期：115/11/18',
+        '壽險顧問：陳姵彣（正興通訊處）',
+        '----------------------------------------',
+        '1. 住院日額保障：疾病/癌症 6,500～8,500元/日；意外 8,500～10,500元/日',
+        '2. 醫療雜費無自負額（1HS-A型）：一般住院 20萬元/次；加護/燒燙傷 40萬元/次',
+        '3. 手術與特定處置：住院手術 2.65萬～12.55萬；門診手術 4,000～10.3萬（含支架/關節醫材補助1.5萬）',
+        '4. 癌症一次金＋短照：第2年度起 100萬元；出院短照 1,500元/日＋術後加值金 10,500元',
+        '5. 外溢回饋機制：健檢＋疫苗/四癌篩檢每年最高回饋 12%（5,072元）',
+        '6. 保費試算：年繳 92,821元（自動轉帳/聯名卡 1% 折扣後 91,893元/年）'
+      ].join('\n');
+
+      const textarea = document.createElement('textarea');
+      textarea.value = summary;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showToast('已複製保障重點摘要，可直接傳送給家人！');
+      } catch (err) {
+        showToast('複製完成！');
+      }
+      document.body.removeChild(textarea);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast-box');
+      document.getElementById('toast-message').textContent = msg;
+      toast.classList.remove('translate-x-full', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-x-full', 'opacity-0');
+      }, 3000);
+    }
+
+    // 頁面載入初始化
+    window.addEventListener('DOMContentLoaded', () => {
+      selectScenario('1');
+      renderPolicies();
+      updateWellnessCalc();
+      selectPaymentMode('annual_discount');
+    });
+  </script>
+</body>
+</html>
