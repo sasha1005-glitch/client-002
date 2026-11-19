@@ -34,7 +34,37 @@
     }
   </style>
 </head>
-<body class="min-h-screen pb-14">
+<body class="min-h-screen">
+  <!-- Password Lock Screen -->
+  <div id="lock-screen" class="min-h-screen flex items-center justify-center px-5 py-10 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900">
+    <div class="w-full max-w-sm bg-white rounded-3xl shadow-2xl p-6 space-y-5 text-center">
+      <div class="w-12 h-12 mx-auto rounded-2xl bg-teal-50 border border-teal-100 flex items-center justify-center text-teal-700">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+        </svg>
+      </div>
+      <div class="space-y-1">
+        <p class="text-xs font-semibold text-teal-700">南山人壽｜陳姵彣 專屬規劃</p>
+        <h1 class="text-xl font-bold text-slate-900">徐秀珍 女士 保障建議書</h1>
+        <p class="text-xs text-slate-500">本文件含個人保障試算，請輸入專屬密碼瀏覽</p>
+      </div>
+      <form id="unlock-form" class="space-y-3 text-left">
+        <div class="relative">
+          <input id="pin-input" type="password" inputmode="numeric" autocomplete="off" placeholder="請輸入瀏覽密碼" class="w-full px-4 py-3 pr-12 text-base font-semibold tracking-widest text-slate-900 bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent" />
+          <button type="button" id="toggle-pin-visibility" aria-label="顯示或隱藏密碼" class="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-500 px-2 py-1 rounded-md hover:bg-slate-200">
+            顯示
+          </button>
+        </div>
+        <p id="pin-error" class="hidden text-xs font-semibold text-rose-600 px-1">密碼不正確，請重新輸入</p>
+        <button type="submit" class="w-full py-3 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-sm shadow-sm active:scale-[0.99] transition">
+          解鎖瀏覽建議書
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Protected Content -->
+  <div id="app-content" class="hidden pb-14">
 
   <!-- Top Sticky Mobile Nav -->
   <header class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-slate-200">
@@ -194,7 +224,19 @@
 
   </main>
 
+  </div>
+
   <script>
+    const EXPECTED_PIN_HASH = '1c5c1ac4';
+    function hashPin(str) {
+      let h = 2166136261;
+      for (let i = 0; i < str.length; i++) {
+        h ^= str.charCodeAt(i);
+        h = Math.imul(h, 16777619);
+      }
+      return (h >>> 0).toString(16);
+    }
+
     const PREMIUM_MODES = {
       discount: { amount: 'NT$ 91,893', sub: '平均約 NT$ 7,658 / 月（已折 1%）' },
       annual:   { amount: 'NT$ 92,821', sub: '主約 62,886 ＋ 附約 29,935' },
@@ -597,6 +639,34 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+      const lockScreen = document.getElementById('lock-screen');
+      const appContent = document.getElementById('app-content');
+      const unlockForm = document.getElementById('unlock-form');
+      const pinInput = document.getElementById('pin-input');
+      const pinError = document.getElementById('pin-error');
+      const toggleVis = document.getElementById('toggle-pin-visibility');
+
+      toggleVis.addEventListener('click', () => {
+        const isPwd = pinInput.type === 'password';
+        pinInput.type = isPwd ? 'text' : 'password';
+        toggleVis.textContent = isPwd ? '隱藏' : '顯示';
+      });
+
+      unlockForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const val = (pinInput.value || '').trim();
+        if (hashPin(val) === EXPECTED_PIN_HASH) {
+          pinError.classList.add('hidden');
+          lockScreen.classList.add('hidden');
+          appContent.classList.remove('hidden');
+          window.scrollTo({ top: 0 });
+        } else {
+          pinError.classList.remove('hidden');
+          pinInput.focus();
+          pinInput.select();
+        }
+      });
+
       renderCases();
       renderPlans();
 
